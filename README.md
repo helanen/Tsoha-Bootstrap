@@ -2,9 +2,12 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* [Linkki sovellukseeni](helanen.users.cs.helsinki.fi/jaakaappi)
+* [Linkki dokumentaatiooni](https://github.com/helanen/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+Työni aiheena on tietokantasovellus, joka on tarkoitettu jokapäiväiseen käyttöön kotitalouksissa. 
+Järjestelmän ensisijainen tarkoitus on näyttää käyttäjälle, mitä elintarvikkeita hänen jääkaapistaan löytyy. 
+Käyttäjä ylläpitää itse ostaessaan tai kuluttaessaan tietokantaa, mitä sinne lisää tai sieltä poistaa. 
+Järjestelmän tarkoituksena on myös ylläpitää tuotteiden päiväyksiä, mikäli käyttäjä näin haluaa.
