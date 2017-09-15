@@ -4,6 +4,11 @@ Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](helanen.users.cs.helsinki.fi/jaakaappi)
 * [Linkki dokumentaatiooni](https://github.com/helanen/Tsoha-Bootstrap/blob/master/doc/dokumentaatio.pdf)
+* [Linkki "etusivulle"](http://helanen.users.cs.helsinki.fi/jaakaappi/etusivu)
+* [Linkki elintarvikelistaan](http://helanen.users.cs.helsinki.fi/jaakaappi/elintarvikelista)
+* [Linkki elintarviketietoihin](http://helanen.users.cs.helsinki.fi/jaakaappi/elintarvikelista/tiedot)
+* [Linkki elintarvikkeen muokkaukseen](http://helanen.users.cs.helsinki.fi/jaakaappi/elintarvikelista/tiedot/muokkaus)
+* [Linkki kirjautumiseen](http://helanen.users.cs.helsinki.fi/jaakaappi/kirjautuminen)
 
 ## Työn aihe
 
