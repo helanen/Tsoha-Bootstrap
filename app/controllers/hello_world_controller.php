@@ -1,5 +1,4 @@
 <?php
-
   class HelloWorldController extends BaseController{
 
     public static function index(){
@@ -23,7 +22,11 @@
     }
 
     public static function sandbox(){
-      // Testaa koodiasi täällä
-      View::make('helloworld.html');
+      //View::make('helloworld.html');
+      $henkka = Kuluttaja::find(1);
+      $kuluttajat = Kuluttaja::all();
+    // Kint-luokan dump-metodi tulostaa muuttujan arvon
+      Kint::dump($kuluttajat);
+      Kint::dump($henkka);
     }
   }
