@@ -1,9 +1,9 @@
 <?php
   class HelloWorldController extends BaseController{
 
-    public static function index(){
+   /* public static function index(){
       // make-metodi renderöi app/views-kansiossa sijaitsevia tiedostoja
-   	  echo 'Tämä on etusivu!';
+   	  View::make('suunnitelmat/etusivu.html');
     }
     public static function elintarvikelista(){
         View::make('suunnitelmat/elintarvikelista.html');
@@ -16,10 +16,8 @@
     }
     public static function kirjautuminen(){
         View::make('suunnitelmat/kirjautuminen.html');
-    }
-    public static function etusivu(){
-        View::make('suunnitelmat/etusivu.html');
-    }
+    }*/
+  
 
     public static function sandbox(){
       //View::make('helloworld.html');

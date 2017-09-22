@@ -8,6 +8,12 @@ class Elintarvike extends BaseModel{
     }
     
    //$jauheliha = new Elintarvike(array('id' => 1, 'name' => 'Sika-nauta jauheliha', 'luokka' => 'Herkästi pilaantuvat'));
+    public function save(){
+        $query = DB::connection()->prepare('INSERT INTO Elintarvike (name, maara, expiry, omistaja, luokka, added, kaytto, description) VALUES (:name, :maara, :expiry, :omistaja, :luokka, :added, :kaytto, :description) RETURNING id');
+        $query->execute(array('name' => $this->name, 'maara' => $this->maara, 'expiry' => $this->expiry, 'omistaja' => $this->omistaja, 'luokka' => $this->luokka, 'added' => $this->added, 'kaytto' => $this->kaytto, 'description' => $this->description));
+        $row = $query->fetch();
+        $this->id = $row['id'];
+    }
     
   public static function all(){
     $query = DB::connection()->prepare('SELECT * FROM Elintarvike');

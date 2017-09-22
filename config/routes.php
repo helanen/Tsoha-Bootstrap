@@ -1,7 +1,7 @@
 <?php
 
   $routes->get('/', function() {
-    HelloWorldController::index();
+    ElintarvikeController::index();
   });
 
   $routes->get('/hiekkalaatikko', function() {
@@ -9,21 +9,29 @@
   });
   
   $routes->get('/etusivu', function() {
-    HelloWorldController::etusivu();
+    ElintarvikeController::etusivu();
   });
   
    $routes->get('/kirjautuminen', function() {
-    HelloWorldController::kirjautuminen();
+    ElintarvikeController::kirjautuminen();
+  });
+  
+  $routes->post('/elintarvike', function() {
+    ElintarvikeController::store();
+  });
+  
+  $routes->get('/elintarvike/new', function() {
+    ElintarvikeController::create();
   });
   
   $routes->get('/elintarvikelista', function() {
-    HelloWorldController::elintarvikelista();
+    ElintarvikeController::index();
   });
   
-  $routes->get('/elintarvikelista/tiedot', function() {
-    HelloWorldController::elintarvikeShow();
+  $routes->get('/elintarvike/:id', function($id) {
+    ElintarvikeController::show($id);
   });
   
-  $routes->get('/elintarvikelista/tiedot/muokkaus', function() {
-    HelloWorldController::elintarvikeMuokkaus();
+  $routes->get('/elintarvike/muokkaus', function() {
+    ElintarvikeController::elintarvikeMuokkaus();
   });

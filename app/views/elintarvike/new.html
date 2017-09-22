@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lisää elintarvike jääkaappiisi</h1>
+
+  <form method="post" action="{{base_path}}/elintarvike">
+    <div class="form-group">
+      <label>Nimi</label>
+      <input type="text" name="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Määrä</label>
+      <input type="text" name="maara" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Parasta ennen pvm</label>
+      <input type="text" name="expiry" class="form-control">
+    </div>
+      
+    <div class="form-group">
+      <label>Omistaja</label>
+      <input type="text" name="omistaja" class="form-control">
+    </div>
+      
+    <div class="form-group">
+      <label>Luokka</label>
+      <input type="text" name="luokka" class="form-control">
+    </div>
+      
+    <div class="form-group">
+      <label>Käyttötarkoitus</label>
+      <input type="text" name="kaytto" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <input type="text" name="description" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+  </form>
+{% endblock %}
