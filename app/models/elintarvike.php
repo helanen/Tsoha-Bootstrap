@@ -40,7 +40,7 @@ class Elintarvike extends BaseModel{
       ));
     }
 
-    return $games;
+    return $elintarvikkeet;
   }
   public static function find($id){
     $query = DB::connection()->prepare('SELECT * FROM Elintarvike WHERE id = :id LIMIT 1');

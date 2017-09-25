@@ -36,7 +36,7 @@ class ElintarvikeController extends BaseController{
             'description' => $params['description']
         ));
         
-        $game->save();
+        $elintarvike->save();
         
         Redirect::to('/elintarvike/' . $elintarvike->id, array('message' => 'Elintarvike on lisätty jääkaappiisi!'));
     }
