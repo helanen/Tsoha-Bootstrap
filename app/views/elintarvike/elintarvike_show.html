@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{elintarvike.name}}</h1>
+<div class="alert alert-success">
+  {{message}}
+</div>
+  <!-- Painikkeet tähän -->
+  <p>
+    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-primary">Muokkaa</a>
+  </p>
+  <!-- Tiedot tulee listana tähän -->
+  <ul>
+    <li><strong>Määrä:</strong><label class="label label-danger">{{elintarvike.maara}}</li>  
+    <li><strong>Parasta ennen pvm:</strong><label class="label label-danger">{{elintarvike.expiry}}</li>
+    <li><strong>Omistaja:</strong>{{elintarvike.omistaja}}</li>
+    <li><strong>Luokka:</strong> <label class="label label-warning">{{elintarvike.luokka}}</label></li>
+    <li><strong>Lisäyspäivä:</strong>{{elintarvike.added}}</li>
+    <li><strong>Käyttötarkoitus:</strong>{{elintarvike.kaytto}}</li>
+  </ul>
+  <!-- Lisätiedot tänne jos haluaa -->
+  <p>
+    {{elintarvike.description}} 
+  </p>
+{% endblock %}

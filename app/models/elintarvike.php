@@ -1,11 +1,11 @@
-<?php>
+<?php
 class Elintarvike extends BaseModel{
 
-    public $id, $jaakaappi_id, $name, $expiry, $omistaja, $luokka, $added, $kaytto, $description;
+    public $id, $jaakaappi_id, $name, $maara, $expiry, $omistaja, $luokka, $added, $kaytto, $description;
     
     public function __construct($attributes){
         parent::__construct($attributes);
-        $this->validators = array('validate_name', 'validate_expiry', 'validate_omistaja', 'validate_luokka', 'validate_added', 'validate_kaytto', 'validate_description');
+        $this->validators = array('validate_name', 'validate_maara', 'validate_expiry', 'validate_omistaja', 'validate_luokka', 'validate_added', 'validate_kaytto', 'validate_description');
     }
     
    //$jauheliha = new Elintarvike(array('id' => 1, 'name' => 'Sika-nauta jauheliha', 'luokka' => 'Herkästi pilaantuvat'));
@@ -36,7 +36,7 @@ class Elintarvike extends BaseModel{
         'omistaja' => $row['omistaja'],
         'luokka' => $row['luokka'],
         'added' => $row['added'],
-        'kaytto' => $row['kaytto']
+        'kaytto' => $row['kaytto'],
         'description' => $row['description']
       ));
     }
@@ -58,7 +58,7 @@ class Elintarvike extends BaseModel{
         'omistaja' => $row['omistaja'],
         'luokka' => $row['luokka'],
         'added' => $row['added'],
-        'kaytto' => $row['kaytto']
+        'kaytto' => $row['kaytto'],
         'description' => $row['description']
       ));
 

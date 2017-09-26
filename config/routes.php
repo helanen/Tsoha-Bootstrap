@@ -24,14 +24,29 @@
     ElintarvikeController::create();
   });
   
-  $routes->get('/elintarvikelista', function() {
-    ElintarvikeController::index();
-  });
-  
   $routes->get('/elintarvike/:id', function($id) {
     ElintarvikeController::show($id);
   });
   
+  $routes->get('/elintarvikelista', function() {
+    ElintarvikeController::index();
+  });
+ 
+  
   $routes->get('/elintarvike/muokkaus', function() {
     ElintarvikeController::elintarvikeMuokkaus();
+  });
+  
+  $routes->get('/elintarvike/:id/edit', function($id){
+  ElintarvikeController::edit($id);
+  });
+  
+  $routes->post('/elintarvike/:id/edit', function($id){
+  // Pelin muokkaaminen
+  ElintarvikeController::update($id);
+  });
+
+  $routes->post('/elintarvike/:id/destroy', function($id){
+  // Pelin poisto
+  ElintarvikeController::destroy($id);
   });

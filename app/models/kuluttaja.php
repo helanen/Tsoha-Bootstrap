@@ -1,4 +1,4 @@
-<?php>
+<?php
 class Kuluttaja extends BaseModel{
 
     public $id, $name, $password;
@@ -7,7 +7,7 @@ class Kuluttaja extends BaseModel{
         parent::__construct($attributes);
     }
     
-   $henkka = new Kuluttaja(array('id' => 1, 'name' => 'Henkka', 'password' => 'asdqwe'));
+   //$henkka = new Kuluttaja(array('id' => 1, 'name' => 'Henkka', 'password' => 'asdqwe'));
     
   public static function all(){
     $query = DB::connection()->prepare('SELECT * FROM Kuluttaja');
