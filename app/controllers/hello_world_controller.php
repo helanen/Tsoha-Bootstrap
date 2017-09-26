@@ -26,5 +26,16 @@
     // Kint-luokan dump-metodi tulostaa muuttujan arvon
       Kint::dump($kuluttajat);
       Kint::dump($henkka);
+      
+      $doom = new Game(array(
+        'name' => 'd',
+        'published' => 'eilen',
+        'publisher' => 'id Software',
+        'description' => 'Boom, boom!'
+      ));
+      $errors = $doom->errors();
+
+        Kint::dump($errors);
     }
-  }
+    }
+ 
