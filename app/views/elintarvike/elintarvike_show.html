@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+{% import "macros/forms.html" as forms %}
 <h1>{{elintarvike.name}}</h1>
+{% if message %}
 <div class="alert alert-success">
   {{message}}
 </div>
+{% endif %}
   <!-- Painikkeet tähän -->
   <p>
-    <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-primary">Muokkaa</a>
+    {{forms.destroy_button("#{base_path}/elintarvike/#{elintarvike.id}/destroy")}}
+    <a class="btn btn-default btn-primary" href="{{base_path}}/elintarvike/{{elintarvike.id}}/edit">Muokkaa</a>
+    <!--<button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-primary">Muokkaa</a>-->
   </p>
   <!-- Tiedot tulee listana tähän -->
   <ul>
