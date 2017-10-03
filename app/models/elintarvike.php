@@ -9,10 +9,9 @@ class Elintarvike extends BaseModel {
         $this->validators = array('validate_name', 'validate_maara', 'validate_expiry', 'validate_omistaja', 'validate_luokka', 'validate_added', 'validate_kaytto', 'validate_description');
     }
 
-    //$jauheliha = new Elintarvike(array('id' => 1, 'name' => 'Sika-nauta jauheliha', 'luokka' => 'Herkästi pilaantuvat'));
     public function save() {
-        $query = DB::connection()->prepare('INSERT INTO Elintarvike (name, maara, expiry, omistaja, luokka, added, kaytto, description) VALUES (:name, :maara, :expiry, :omistaja, :luokka, :added, :kaytto, :description) RETURNING id');
-        $query->execute(array('name' => $this->name, 'maara' => $this->maara, 'expiry' => $this->expiry, 'omistaja' => $this->omistaja, 'luokka' => $this->luokka, 'added' => $this->added, 'kaytto' => $this->kaytto, 'description' => $this->description));
+        $query = DB::connection()->prepare('INSERT INTO Elintarvike (name, jaakaappi_id, maara, expiry, omistaja, luokka, added, kaytto, description) VALUES (:name, :jaakaappi_id, :maara, :expiry, :omistaja, :luokka, :added, :kaytto, :description) RETURNING id');
+        $query->execute(array('name' => $this->name, 'jaakaappi_id' => $this->jaakaappi_id, 'maara' => $this->maara, 'expiry' => $this->expiry, 'omistaja' => $this->omistaja, 'luokka' => $this->luokka, 'added' => $this->added, 'kaytto' => $this->kaytto, 'description' => $this->description));
         $row = $query->fetch();
         $this->id = $row['id'];
     }
@@ -79,7 +78,7 @@ class Elintarvike extends BaseModel {
         return null;
     }
     public static function findByJaakaappi($id) {
-        $query = DB::connection()->prepare('SELECT * FROM Elintarvike WHERE id = :id LIMIT 1');
+        $query = DB::connection()->prepare('SELECT * FROM Elintarvike LEFT JOIN Jaakaappi ON Elintarvike.jaakaappi_id = Jaakaappi.id');
         $query->execute(array('id' => $id));
         $row = $query->fetch();
 

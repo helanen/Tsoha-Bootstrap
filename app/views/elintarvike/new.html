@@ -18,6 +18,18 @@
         <input type="text" name="name" class="form-control" value="{{attributes.name}}">
     </div>
 
+
+    <div class="form-group">
+        <label>Jääkaappi</label>
+        <select class="form-control" name="jaakaappi_id">
+            {% for jaakaappi in jaakaapit %}
+            <option value="{{jaakaappi.id}}">{{jaakaappi.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+
     <div class="form-group">
         <label class="control-label">Määrä</label>
         <input type="text" name="maara" class="form-control" value="{{attributes.maara}}">

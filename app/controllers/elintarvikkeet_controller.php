@@ -18,8 +18,10 @@ class ElintarvikeController extends BaseController {
     public static function store() {
         self::check_logged_in();
         $params = $_POST;
+        $jaakaappi = $params['jaakaappi_id'];
         $attributes = array(
             'name' => $params['name'],
+            'jaakaappi_id' => $jaakaappi,
             'maara' => $params['maara'],
             'expiry' => $params['expiry'],
             'omistaja' => $params['omistaja'],
@@ -28,12 +30,9 @@ class ElintarvikeController extends BaseController {
             'kaytto' => $params['kaytto'],
             'description' => $params['description']
         );
-
         $elintarvike = new Elintarvike($attributes);
         $errors = $elintarvike->errors();
-
         if (count($errors) == 0) {
-
             $elintarvike->save();
             Redirect::to('/elintarvike/' . $elintarvike->id, array('message' => 'Elintarvike on lisätty jääkaappiisi!'));
         } else {
@@ -43,7 +42,8 @@ class ElintarvikeController extends BaseController {
 
     public static function create() {
         self::check_logged_in();
-        View::make('elintarvike/new.html');
+        $jaakaapit = Jaakaappi::all();
+        View::make('elintarvike/new.html', array('jaakaapit' => $jaakaapit));
     }
 
 
@@ -56,9 +56,11 @@ class ElintarvikeController extends BaseController {
     public static function update($id) {
         self::check_logged_in();
         $params = $_POST;
+        $jaakaappi = $params['jaakaappi'];
 
         $attributes = array(
             'id' => $id,
+            'jaakaappi_id' => $jaakaappi,
             'name' => $params['name'],
             'maara' => $params['maara'],
             'expiry' => $params['expiry'],
