@@ -78,6 +78,29 @@ class Elintarvike extends BaseModel {
         }
         return null;
     }
+    public static function findByJaakaappi($id) {
+        $query = DB::connection()->prepare('SELECT * FROM Elintarvike WHERE id = :id LIMIT 1');
+        $query->execute(array('id' => $id));
+        $row = $query->fetch();
+
+        if ($row) {
+            $elintarvike = new Elintarvike(array(
+                'id' => $row['id'],
+                'jaakaappi_id' => $row['jaakaappi_id'],
+                'name' => $row['name'],
+                'maara' => $row['maara'],
+                'expiry' => $row['expiry'],
+                'omistaja' => $row['omistaja'],
+                'luokka' => $row['luokka'],
+                'added' => $row['added'],
+                'kaytto' => $row['kaytto'],
+                'description' => $row['description']
+            ));
+
+            return $elintarvike;
+        }
+        return null;
+    }
 
     public function validate_name() {
         $errors = array();
