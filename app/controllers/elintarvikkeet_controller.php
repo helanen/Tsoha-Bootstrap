@@ -2,19 +2,21 @@
 
 class ElintarvikeController extends BaseController {
 
-    public static function index() {  
+    public static function index() {
+        self::check_logged_in();
         $elintarvikkeet = Elintarvike::all();
         View::make('elintarvike/index.html', array('elintarvikkeet' => $elintarvikkeet));
        
     }
 
     public static function show($id) {
-
+        self::check_logged_in();
         $elintarvike = Elintarvike::find($id);
         View::make('elintarvike/elintarvike_show.html', array('elintarvike' => $elintarvike));
     }
     
     public static function store() {
+        self::check_logged_in();
         $params = $_POST;
         $attributes = array(
             'name' => $params['name'],
@@ -40,16 +42,19 @@ class ElintarvikeController extends BaseController {
     }
 
     public static function create() {
+        self::check_logged_in();
         View::make('elintarvike/new.html');
     }
 
 
     public static function edit($id) {
+        self::check_logged_in();
         $elintarvike = Elintarvike::find($id);
         View::make('elintarvike/elintarvike_muokkaus.html', array('elintarvike' => $elintarvike));
     }
 
     public static function update($id) {
+        self::check_logged_in();
         $params = $_POST;
 
         $attributes = array(
@@ -79,6 +84,7 @@ class ElintarvikeController extends BaseController {
     }
 
     public static function destroy($id) {
+        self::check_logged_in();
 
         $elintarvike = new Elintarvike(array('id' => $id));
 

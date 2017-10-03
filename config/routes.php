@@ -12,10 +12,6 @@ $routes->get('/etusivu', function() {
     ElintarvikeController::etusivu();
 });
 
-$routes->get('/kirjautuminen', function() {
-    ElintarvikeController::kirjautuminen();
-});
-
 $routes->post('/elintarvike', function() {
     ElintarvikeController::store();
 });
@@ -53,5 +49,38 @@ $routes->get('/login', function() {
 $routes->post('/login', function() {
     // Kirjautumisen käsittely
     UserController::handle_login();
+});
+$routes->post('/logout', function() {
+    UserController::logout();
+});
+
+$routes->post('/kaapit', function() {
+    JaakaappiController::store();
+});
+
+$routes->get('/kaapit/new', function() {
+    JaakaappiController::create();
+});
+
+$routes->get('/kaapit/:id', function($id) {
+    JaakaappiController::show($id);
+});
+
+$routes->get('/kaapit', function() {
+    JaakaappiController::index();
+});
+
+$routes->get('/kaapit/:id/edit', function($id) {
+    JaakaappiController::edit($id);
+});
+
+$routes->post('/kaapit/:id/edit', function($id) {
+    // Pelin muokkaaminen
+    JaakaappiController::update($id);
+});
+
+$routes->post('/kaapit/:id/destroy', function($id) {
+    // Pelin poisto
+    JaakaappiController::destroy($id);
 });
 

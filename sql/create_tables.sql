@@ -19,16 +19,16 @@ CREATE TABLE Elintarvike(
   jaakaappi_id INTEGER REFERENCES Jaakaappi(id),
   name varchar(50) NOT NULL,
   maara varchar(20),
-  expiry DATE,
+  expiry varchar(10),
   omistaja varchar(20),
-  luokka varchar(20),
-  added DATE,
-  kaytto varchar(20),
+  luokka varchar(50),
+  added varchar(10),
+  kaytto varchar(50),
   description varchar(400)
 );
 
 CREATE TABLE Elintarviketyyppi(
-  name varchar(20) NOT NULL,
+  name varchar(50) NOT NULL,
   id SERIAL PRIMARY KEY
 );
 

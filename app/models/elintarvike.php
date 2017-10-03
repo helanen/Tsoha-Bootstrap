@@ -105,15 +105,10 @@ class Elintarvike extends BaseModel {
 
     public function validate_expiry() {
         $errors = array();
-        /* if($this->name == '' || $this->name == null){
-          $errors[] = 'Nimi ei saa olla tyhjä!';
+        
+          if(strlen($this->expiry) > 10){
+          $errors[] = 'Päivämäärä muodossa "10.10.2010"';
           }
-          if(strlen($this->name) < 3){
-          $errors[] = 'Nimen pituuden tulee olla vähintään kolme merkkiä!';
-          }
-          if(strlen($this->name) > 50){
-          $errors[] = 'Nimen pituuden tulee olla enintään 50 merkkiä!';
-          } */
 
         return $errors;
     }
@@ -129,8 +124,8 @@ class Elintarvike extends BaseModel {
 
     public function validate_luokka() {
         $errors = array();
-        if (strlen($this->luokka) > 20) {
-            $errors[] = 'Luokan nimi tulee olla enintään 20 merkkiä!';
+        if (strlen($this->luokka) > 50) {
+            $errors[] = 'Luokan nimi tulee olla enintään 50 merkkiä!';
         }
 
         return $errors;
@@ -138,9 +133,9 @@ class Elintarvike extends BaseModel {
 
     public function validate_added() {
         $errors = array();
-        /* if(strlen($this->name) > 20){
-          $errors[] = 'Määrän nimi tulee olla enintään 20 merkkiä!';
-          } */
+        if(strlen($this->added) > 10){
+          $errors[] = 'Päivämäärä muodossa "10.10.2010"';
+          }
 
         return $errors;
     }
