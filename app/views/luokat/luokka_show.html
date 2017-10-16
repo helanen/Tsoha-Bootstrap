@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+<h1>{{luokka.name}}</h1>
+{% if message %}
+<div class="alert alert-success">
+  {{message}}
+</div>
+{% endif %}
+  <!-- Painikkeet tähän -->
+  <p>
+    {{forms.destroy_button("#{base_path}/luokat/#{luokka.id}/destroy")}}
+    <a class="btn btn-default btn-primary" href="{{base_path}}/luokat/{{luokka.id}}/edit">Muokkaa</a>
+    <!--<button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-primary">Muokkaa</a>-->
+  </p>
+{% endblock %}

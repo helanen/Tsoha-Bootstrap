@@ -12,7 +12,7 @@ $routes->get('/etusivu', function() {
     ElintarvikeController::etusivu();
 });
 
-$routes->post('/elintarvike', function() {
+$routes->post('/elintarvike/new', function() {
     ElintarvikeController::store();
 });
 
@@ -46,10 +46,20 @@ $routes->get('/login', function() {
     // Kirjautumislomakkeen esittäminen
     UserController::login();
 });
+
 $routes->post('/login', function() {
     // Kirjautumisen käsittely
     UserController::handle_login();
 });
+
+$routes->get('/register', function() {
+   UserController::register(); 
+});
+
+$routes->post('/register', function() {
+   UserController::save(); 
+});
+
 $routes->post('/logout', function() {
     UserController::logout();
 });
@@ -82,5 +92,34 @@ $routes->post('/kaapit/:id/edit', function($id) {
 $routes->post('/kaapit/:id/destroy', function($id) {
     // Pelin poisto
     JaakaappiController::destroy($id);
+});
+
+$routes->post('/luokat', function() {
+    LuokkaController::store();
+});
+
+$routes->get('/luokat/new', function() {
+    LuokkaController::create();
+});
+
+$routes->get('/luokat/:id', function($id) {
+    LuokkaController::show($id);
+});
+
+$routes->get('/luokat', function() {
+    LuokkaController::index();
+});
+
+$routes->get('/luokat/:id/edit', function($id) {
+    LuokkaController::edit($id);
+});
+
+$routes->post('/luokat/:id/edit', function($id) {
+    LuokkaController::update($id);
+});
+
+$routes->post('/luokat/:id/destroy', function($id) {
+    // Pelin poisto
+    LuokkaController::destroy($id);
 });
 

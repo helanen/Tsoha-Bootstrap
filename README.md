@@ -2,7 +2,7 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](helanen.users.cs.helsinki.fi/jaakaappi)
+* [Linkki sovellukseeni](http://helanen.users.cs.helsinki.fi/jaakaappi/login)
 * [Linkki dokumentaatiooni](https://github.com/helanen/Tsoha-Bootstrap/blob/master/doc/Tietokantasovellus%20-%20harjoitusty%C3%B6.pdf)
 * [Linkki "etusivulle"](http://helanen.users.cs.helsinki.fi/jaakaappi/login)
 * [Linkki elintarvikelistaan](http://helanen.users.cs.helsinki.fi/jaakaappi/)

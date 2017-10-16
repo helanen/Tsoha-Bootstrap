@@ -56,11 +56,11 @@ class ElintarvikeController extends BaseController {
     public static function update($id) {
         self::check_logged_in();
         $params = $_POST;
-        $jaakaappi = $params['jaakaappi'];
+        //$jaakaappi = $params['jaakaappi_id'];
 
         $attributes = array(
             'id' => $id,
-            'jaakaappi_id' => $jaakaappi,
+            //'jaakaappi_id' => $jaakaappi,
             'name' => $params['name'],
             'maara' => $params['maara'],
             'expiry' => $params['expiry'],

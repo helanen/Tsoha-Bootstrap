@@ -78,12 +78,14 @@ class Elintarvike extends BaseModel {
         return null;
     }
     public static function findByJaakaappi($id) {
-        $query = DB::connection()->prepare('SELECT * FROM Elintarvike LEFT JOIN Jaakaappi ON Elintarvike.jaakaappi_id = Jaakaappi.id');
-        $query->execute(array('id' => $id));
-        $row = $query->fetch();
+        $query = DB::connection()->prepare('SELECT * FROM Elintarvike JOIN Jaakaappi ON Elintarvike.jaakaappi_id = Jaakaappi.id WHERE Elintarvike.jaakaappi_id = :id');
+        $rows = $query->fetchAll();
+        $elintarvikkeet = array();
 
-        if ($row) {
-            $elintarvike = new Elintarvike(array(
+
+        foreach ($rows as $row) {
+
+            $elintarvikkeet[] = new Elintarvike(array(
                 'id' => $row['id'],
                 'jaakaappi_id' => $row['jaakaappi_id'],
                 'name' => $row['name'],
@@ -95,10 +97,9 @@ class Elintarvike extends BaseModel {
                 'kaytto' => $row['kaytto'],
                 'description' => $row['description']
             ));
-
-            return $elintarvike;
         }
-        return null;
+
+        return $elintarvikkeet;
     }
 
     public function validate_name() {
