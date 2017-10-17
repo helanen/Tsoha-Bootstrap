@@ -36,7 +36,8 @@ class ElintarvikeController extends BaseController {
             $elintarvike->save();
             Redirect::to('/elintarvike/' . $elintarvike->id, array('message' => 'Elintarvike on lisätty jääkaappiisi!'));
         } else {
-            View::make('elintarvike/new.html', array('errors' => $errors, 'attributes' => $attributes));
+            $jaakaapit = Jaakaappi::all();
+            View::make('elintarvike/new.html', array('errors' => $errors, 'attributes' => $attributes, 'jaakaapit' => $jaakaapit));
         }
     }
 

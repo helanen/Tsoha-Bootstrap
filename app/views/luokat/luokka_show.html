@@ -4,13 +4,20 @@
 <h1>{{luokka.name}}</h1>
 {% if message %}
 <div class="alert alert-success">
-  {{message}}
+    {{message}}
 </div>
 {% endif %}
-  <!-- Painikkeet tähän -->
-  <p>
+<!-- Painikkeet tähän -->
+<p>
+    <a class="btn btn-default btn-warning" onclick="goBack()">Takaisin</a>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script> 
     {{forms.destroy_button("#{base_path}/luokat/#{luokka.id}/destroy")}}
     <a class="btn btn-default btn-primary" href="{{base_path}}/luokat/{{luokka.id}}/edit">Muokkaa</a>
     <!--<button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-primary">Muokkaa</a>-->
-  </p>
+</p>
 {% endblock %}
