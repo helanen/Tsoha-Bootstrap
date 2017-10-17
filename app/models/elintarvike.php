@@ -79,6 +79,7 @@ class Elintarvike extends BaseModel {
     }
     public static function findByJaakaappi($id) {
         $query = DB::connection()->prepare('SELECT * FROM Elintarvike JOIN Jaakaappi ON Elintarvike.jaakaappi_id = Jaakaappi.id WHERE Elintarvike.jaakaappi_id = :id');
+        $query->execute(array("id" => $id));
         $rows = $query->fetchAll();
         $elintarvikkeet = array();
 
@@ -95,7 +96,7 @@ class Elintarvike extends BaseModel {
                 'luokka' => $row['luokka'],
                 'added' => $row['added'],
                 'kaytto' => $row['kaytto'],
-                'description' => $row['description']
+                'description' => $row['description'],
             ));
         }
 

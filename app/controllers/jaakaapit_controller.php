@@ -13,6 +13,9 @@ class JaakaappiController extends BaseController {
         self::check_logged_in();
         $jaakaappi = Jaakaappi::find($id);
         $elintarvikkeet = Elintarvike::findByJaakaappi($id);
+        /*Kint::dump($elintarvikkeet);
+        Kint::dump($jaakaappi);
+        die();*/
         View::make('kaapit/jaakaappi_show.html', array('jaakaappi' => $jaakaappi, 'elintarvikkeet' =>$elintarvikkeet));
     }
     
